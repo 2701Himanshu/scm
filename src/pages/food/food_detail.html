@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar>
+    <!--<button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+    <div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ion-title>{{obj.name}}</ion-title>
+    <div class="group-btn-nav">
+      <button clear small color="light" ion-button class="cart-nav" (click)="openCartPage()">
+        <ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+      </button>
+      <button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="food-detail">
+<img src="{{obj.image}}" style="width:100%" />
+<div class="sale_off" *ngIf="obj.discount_percent != null">
+  <img class="badge" src="assets/img/badge.png" alt="">
+  <p><b>Sale</b><br>-{{('0' + obj.discount_percent).slice(-2)}}<small> %</small></p>
+</div>
+<div padding class="wrapper_pst">
+ <h2>{{obj.name}}</h2>
+ <p class="price" *ngIf="obj.discount_percent == null || obj.discount_percent == 0">
+   <span *ngIf="settings.position == 0">
+    {{settings.currency_symbol}}
+  </span>
+  {{obj.price}}
+  <span *ngIf="settings.position == 1">
+    {{settings.currency_symbol}}
+    </span>
+</p>
+<p class="price_sale_off" *ngIf="obj.discount_percent != null && obj.discount_percent != 0">
+  <span class="price old-price"> &nbsp; 
+   <span *ngIf="settings.position == 0">
+    {{settings.currency_symbol}}
+  </span>
+
+  {{obj.price}}
+  <span *ngIf="settings.position == 1">
+    {{settings.currency_symbol}}
+  </span>
+
+  &nbsp; </span>
+  <span class="price">
+   <span *ngIf="settings.position == 0">
+    {{settings.currency_symbol}}
+  </span>
+
+  {{obj.price - obj.price*obj.discount_percent/100}}
+  <span *ngIf="settings.position == 1">
+    {{settings.currency_symbol}}
+  </span>
+
+</span>
+</p>
+<p class="offer_des" *ngIf="obj.discount_percent != null && obj.discount_percent != 0">
+  <ion-icon name="star"></ion-icon> {{obj.offer_description}} <ion-icon name="star"></ion-icon>
+</p>
+<p class="description">{{obj.description}}</p>
+<ion-row class="gr-btn">
+<button icon-left ion-button round block (click)="modalAddCart(obj)">
+  <ion-icon name="cart"></ion-icon>{{'add_cart' | translate}}
+</button>
+
+<button icon-left ion-button round block [ngClass]="obj.favoriest ? 'active':''" (click)="addFavoriest(obj)">
+  <ion-icon name="heart"></ion-icon>Favorites
+</button>
+
+<button icon-left ion-button round block (click)="share(obj)">
+  <ion-icon name="share-alt"></ion-icon>{{'share' | translate}}
+</button>
+</ion-row>
+</div>
+
+<ion-fab bottom right>
+<button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+<ion-fab-list side="left">
+<button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+<button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+<button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+</ion-fab-list>
+</ion-fab>
+</ion-content>

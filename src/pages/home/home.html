@@ -1,0 +1,217 @@
+<ion-header>
+	<ion-navbar>
+		<!--<div *ngIf="vtate">-->
+		<!--<ion-icon name="menu" *ngIf="vtate == true"></ion-icon>-->
+		<!--<ion-icon name="close" *ngIf="vtate == false"></ion-icon>-->
+		<!--<button id="mbtn" ion-button menuToggle style="display:none">
+			<ion-icon name="menu"></ion-icon>
+		</button>-->
+		<div id="nav-icon1" (click)="menubtn()">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<!--</div>-->
+		<!--<button ion-button menuToggle *ngIf="mst == 3" >
+
+	<!--<ion-icon name="menu" *ngIf="vtate"></ion-icon>-->
+		<!--<ion-icon name="close" ></ion-icon>-->
+		<!--<ion-icon [name]="visible ? 'menu' : 'close'"></ion-icon>-->
+		<!--<ion-icon [@myvisibility]="visibleState" name="ios-contact-outline"></ion-icon>-->
+		<!--</button>-->
+		<ion-title> {{'home' | translate}}</ion-title>
+		<div class="group-btn-nav">
+			<button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+				<ion-icon name="search"></ion-icon>
+			</button>
+			<button clear small color="light" ion-button class="cart-nav" (click)="openCartPage()">
+				<ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+			</button>
+			<!--<button clear small color="light" ion-button class="cart-nav" (click)="presentAlert()">
+			<ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+		</button>-->
+			<!--<button clear small color="light" ion-button class="cart-nav" (click)="processLocation()">
+			<ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+		</button>-->
+		</div>
+	</ion-navbar>
+</ion-header>
+<ion-content style="background-image:url('assets/img/back.jpg')">
+	<ion-row>
+		<ion-slides pager>
+			<!--autoplay="5000" loop="true" speed="500" pager="true"-->
+			<!-- autoplay="500" loop="true" speed="3000" -->
+			<ion-slide *ngFor="let car of carousalList">
+				<img src="{{base_url+car.path}}" />
+			</ion-slide>
+
+		</ion-slides>
+	</ion-row>
+	<div style="    text-align: center;">
+		<div style="display: inline-block;
+	color: #666;
+	background-color: #3535356e;
+	/*text-transform: uppercase;*/
+	/*letter-spacing: 2px;
+	font-size: 12px;*/
+	padding: 10px 30px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-width: 3px;
+	width:90%" (click)="presentAlert()">
+			<!--<img src="assets/img/take-away.png" (click)="presentAlert()" />-->
+			<!--<span style="color: #fff;font-family: cookie; font-size: 2em; text-align: center;">Take Away</span>-->
+			<p style="color: #fff;
+		font-family: cookie;
+		font-size: 2em;
+		text-align: center;">Pick Up</p>
+		</div>
+		<div style="	display: inline-block;
+	color: #666;
+	background-color: #3535356e;
+	/*text-transform: uppercase;*/
+	/*letter-spacing: 2px;
+	font-size: 12px;*/
+	padding: 10px 30px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-width: 3px;
+	width:90%" (click)="presentPrompt()">
+			<!--<img src="assets/img/delivery-van.png" (click)="presentAlert()" />-->
+			<p style="color: #fff;
+		font-family: cookie;
+		font-size: 2em;
+		text-align: center;">Home Delivery</p>
+			<!--<img src="assets/img/home-del.jpg" (click)="presentPrompt()" />-->
+		</div>
+	</div>
+	<!--<div>
+		<div style="width: 50%; float: left;">
+			<img src="assets/img/takeaw.jpg" (click)="presentAlert()" />
+		</div>
+		<div style="width: 50%;float: right;">
+			<img src="assets/img/home-del.jpg" (click)="presentPrompt()" />
+		</div>
+	</div>-->
+
+
+	<!--<ion-row class="banner">
+		<img class="banner-bg" src="assets/img/home-banner.jpg" alt="">
+		<div class="slogan">
+			<img style="max-height: 130px;z-index:9999" src="assets/img/logo-light.png">-->
+	<!--<p>{{'intro' | translate}}</p>
+	<button color="light" ion-button (click)="openCatPage()"> {{'our_menu' | translate}}</button>-->
+	<!--</div>
+		<img class="decor" src="assets/img/torn.png" alt="">
+	</ion-row>-->
+	<!--<ion-row class="lst-food">-->
+	<!--<div class="name-st" padding>
+		<b>{{'special_food_items' | translate}}</b>
+		<h4> {{'discover_now' | translate}}</h4>
+		<p>Thousands of delicious food are waiting for you to explore below, quick order to go.</p>
+	</div>-->
+	<!--<ion-card *ngFor="let lst of list" (click)="openPage(lst)">
+		<img src="{{base_url+lst.path}}" />
+		<div class="wrapper-bg">
+			<span>
+				<div class="card-title">{{lst.name}}</div>
+				<div class="card-subtitle">{{'total' | translate}} <p>{{lst.total}} {{'items' | translate}}</p></div>
+			</span>
+		</div>
+	</ion-card>-->
+	<!--<ion-card *ngFor="let lst of list" style="width:50%;margin:0px;margin-bottom:3px;box-sizing:border-box;border:0.2px;border-style:ridge;border-color:#aeb0b1;background-color:#2a282b">
+		<div>-->
+	<!-- *ngIf="lst.location == location" -->
+	<!--<img (click)="openPage(lst.id)" src="{{lst.image}}" style="height:50%" />
+	<div class="sale_off" *ngIf="lst.discount_percent != null">
+		<img class="badge" src="assets/img/badge.png" alt="">
+		<p><b>Sale</b><br>-{{('0' + lst.discount_percent).slice(-2)}}<small> %</small></p>
+	</div>
+	<ion-card-content (click)="openPage(lst.id)">
+		<ion-card-title>{{lst.name}}</ion-card-title>
+
+		<p class="price" *ngIf="lst.discount_percent == null || lst.discount_percent == 0">
+			<span *ngIf="settings.position == 0">
+				{{settings.currency_symbol}}
+			</span>
+			{{lst.price}}
+			<span *ngIf="settings.position==1">
+				{{settings.currency_symbol}}
+			</span>
+		</p>
+		<p class="price_sale_off" *ngIf="lst.discount_percent != null && lst.discount_percent != 0">
+			<span class="price old-price">
+				&nbsp;
+				<span *ngIf="settings.position == 0">
+					{{settings.currency_symbol}}
+				</span>
+				{{lst.price}}
+				<span *ngIf="settings.position==1">
+					{{settings.currency_symbol}}
+				</span>
+				&nbsp;
+			</span>
+
+			<span class="price">
+				<span *ngIf="settings.position == 0">
+					{{settings.currency_symbol}}
+				</span>
+				{{lst.price - lst.price*lst.discount_percent/100}}
+				<span *ngIf="settings.position==1">
+					{{settings.currency_symbol}}
+				</span>
+			</span>
+			.d
+		</p>-->
+	<!--<p>{{lst.description.substr(0, 150)+'...'}}</p>-->
+	<!--</ion-card-content>
+	<ion-row no-padding>
+		<ion-col col-5>
+			<button clear icon-left ion-button small (click)="modalAddCart(lst)">
+				<ion-icon name="cart"></ion-icon> {{'add_cart' | translate}}
+			</button>
+		</ion-col>
+		<ion-col col-5>
+			<button clear icon-left ion-button small [ngClass]="lst.favoriest ? 'active':''" (click)="addFavoriest(lst)">
+				<ion-icon name="heart"></ion-icon> Favorite
+			</button>
+		</ion-col>-->
+	<!--<ion-col col-4 text-right>
+		<button clear icon-left ion-button small (click)='share(lst)'>
+			<ion-icon name="share-alt"></ion-icon> {{'share' | translate}}
+		</button>
+	</ion-col>-->
+	<!--</ion-row>
+			</div>
+		</ion-card>
+	</ion-row>
+	<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+		oa
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>-->
+	<!--<ion-row padding class="send-mail">-->
+		<!--<b> {{'send_us_contact' | translate}}</b>-->
+		<!--<h4> {{'send_messages' | translate}}</h4>-->
+		<!--<p> {{'send_email_quote' | translate}}</p>-->
+		<!--<button color="light" icon-right ion-button (click)="send_message(email)">
+			{{'send' | translate}}
+			<ion-icon name="send"></ion-icon>
+		</button>
+	</ion-row>-->
+
+
+	<ion-fab bottom right>
+		<!--<button ion-fab><ion-icon name="menu"></ion-icon></button>-->
+		<button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+		<ion-fab-list side="left">
+			<button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+			<button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+			<!--<button ion-fab (click)="openAboutPage()"><ion-icon name="ios-information-circle"></ion-icon></button>-->
+			<button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+		</ion-fab-list>
+	</ion-fab>
+</ion-content>

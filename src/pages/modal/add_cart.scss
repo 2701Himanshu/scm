@@ -1,0 +1,113 @@
+page-modal {
+  ion-content {
+    background: transparent !important;
+    color: #fff;
+
+    .scroll-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .close-modal {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .main-modal {
+    opacity: 1;
+    z-index: 1000000;
+    position: relative;
+    background: #272727 !important;
+    width: 70%;
+    margin: 0px auto;
+    height: auto;
+    display: block;
+    overflow: auto;
+  }
+
+  ion-list {
+    margin-bottom: 20px !important;
+    width: 100%;
+    background: #272727 !important;
+
+
+    &.list-md {
+      margin-bottom: 40px !important;
+
+      &:nth-child(2) {
+        margin-bottom: 15px !important;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 10px !important;
+    }
+
+    ion-list-header {
+      border-top: none !important;
+      font-weight: bold !important;
+      margin-bottom: 0 !important;
+      color: #fff;
+
+      &.list-header-wp {
+        font-size: 1.4rem !important;
+        color: #fff;
+      }
+    }
+
+    ion-item {
+      min-height: 3rem !important;
+      font-size: 1.4rem !important;
+      background: #272727 !important;
+      color: #fff;
+
+      &:last-child {
+        border: none !important;
+      }
+
+      ion-checkbox {
+        margin-right: 10px !important;
+      }
+
+      ion-label {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+        color: #fff;
+
+        &:last-child {
+          text-align: right;
+        }
+
+        &:first-child {
+          text-align: left !important;
+        }
+      }
+
+      ion-radio, ion-checkbox {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
+  .add-button {
+    padding-top: 10px;
+    width: 100%;
+    background: #272727;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+
+    button {
+      color: #e91e3c !important;
+    }
+  }
+}

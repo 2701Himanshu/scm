@@ -1,0 +1,148 @@
+page-about {
+  .content {
+    background: #171717;
+  }
+
+  .map {
+    filter: grayscale(100%) contrast(105%);
+
+    iframe {
+      border-bottom: 3px solid #ddd !important;
+    }
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border: 10px solid;
+      border-color: #ddd transparent transparent transparent;
+      margin-left: 15px;
+    }
+  }
+
+  .address {
+    margin-top: 20px;
+
+    h4 {
+      margin-bottom: 20px;
+      font-family: cookie;
+      font-size: 3rem;
+      color: #fff;
+    }
+
+    ion-icon {
+      font-size: 2.5rem;
+      margin-top: 1.4rem;
+      color: #dedada;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #dad7d7;
+    }
+
+    .social {
+      margin-top: 50px;
+
+      h5 {
+        color: #fff;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      button {
+        height: auto !important;
+        padding: 5px 0px;
+        margin: 2px;
+        border: none;
+
+        ion-icon {
+          margin-top: 0 !important;
+        }
+      }
+    }
+  }
+
+  .ter_cond {
+    margin-top: 30px;
+
+    h5 {
+      color: #fff;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    p {
+      line-height: 2.2rem;
+      font-size: 1.3rem;
+      color: #7e7e7e;
+      width: 100%;
+    }
+  }
+
+  .form-contact {
+    margin-top: 40px;
+    margin-bottom: 70px;
+
+    h4 {
+      margin-bottom: 30px;
+      font-family: cookie;
+      font-size: 3rem;
+      color: #e91e3c;
+    }
+
+    form {
+      width: 100%;
+      background: none !important;
+
+      ion-item {
+        background: none !important;
+        padding: 0;
+
+        .item-inner {
+          padding-left: 5px !important;
+          border: none !important;
+        }
+
+        .input-wrapper {
+          overflow: initial !important;
+        }
+      }
+    }
+
+    input, textarea {
+      width: 100%;
+      background: #fff;
+      padding: 5px 15px;
+      font-size: 1.4rem;
+      margin: 5px 0px;
+      border: none;
+      border-radius: 18px;
+      box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input {
+      height: 36px;
+    }
+
+    button {
+      background: #e91e3c;
+      text-transform: uppercase;
+      color: #fff;
+      margin-top: 10px;
+
+      &.activated {
+        color: #212739;
+      }
+    }
+  }
+}

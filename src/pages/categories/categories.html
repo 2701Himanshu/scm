@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <!--<div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>-->
+    <ion-title>{{'menu' | translate}}</ion-title>
+    <div class="group-btn-nav">
+      <button clear small color="light" ion-button class="cart-nav" (click)="openCartPage()">
+        <ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+      </button>
+      <button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page" style="background-image:url('assets/img/back.jpg')">
+  <div *ngFor="let lst of list">
+    <ion-card *ngIf="lst.total && lst.id!=53" (click)="openPage(lst)">
+      <img src="{{base_url+lst.path}}" />
+      <div class="wrapper-bg">
+        <span>
+          <div class="card-title">{{lst.name}}</div>
+          <div class="card-subtitle">{{'total' | translate}} <p>{{lst.total}} {{'items' | translate}}</p></div>
+        </span>
+      </div>
+
+    </ion-card>
+  </div>
+
+  <ion-fab bottom right>
+    <button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

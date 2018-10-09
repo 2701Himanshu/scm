@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <!--<button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+    <div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ion-title>{{'login' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-login">
+	<img src="https://image.freepik.com/free-photo/food-background-food-concept-with-various-tasty-fresh-ingredients-for-cooking-italian-food-ingredients-view-from-above-with-copy-space_1220-1373.jpg" alt="">
+	<div padding class="wrapper-login">
+		<div>
+
+			<ion-row class="form-login">
+				<input [(ngModel)]="user_name" type="text" placeholder="{{'user_name' | translate}}">
+				<input [(ngModel)]="password" type="password" placeholder="{{'password' | translate}}">
+				<p style="color: #fff; text-align: center; display: block; width: 100%;" *ngIf="msg_err != null || msg_err != ''">{{msg_err}}</p>
+				<button ion-button round color="light" (click)="login()">{{'login' | translate}}</button>
+			</ion-row>
+			<ion-row class="more-login">
+				<button ion-button block round (click)="fb_login()">{{'login_with_facebook' | translate}}</button>
+			</ion-row>
+			<ion-row class="more-opt">
+				<button ion-button small clear round (click)="signup()">{{'new_account' | translate}}</button>
+			</ion-row>
+		</div>
+	</div>
+</ion-content>

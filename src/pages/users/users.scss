@@ -1,0 +1,220 @@
+page-users {
+  .err {
+    color: #f53d3d;
+  }
+
+  .form-signup {
+    background: #f1f1f1;
+
+    label {
+      color: #757575;
+      font-weight: bold;
+      padding-bottom: 7px;
+      display: block;
+    }
+
+    ion-input {
+      background: #fff;
+      margin-bottom: 15px;
+      border-radius: 20px;
+      padding: 0px 10px;
+      font-weight: bold;
+    }
+
+    .text-input {
+      margin-top: 10px !important;
+      margin-bottom: 10px !important;
+    }
+  }
+
+  .content-login {
+    // .scroll-content{
+    // 	display: flex;
+    // 	justify-content: center;
+    // 	align-items: center;
+    // }
+    .wrapper-login {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > div {
+        margin-top: -20px;
+      }
+    }
+
+    img {
+      max-width: initial;
+      height: 100%;
+    }
+
+    .brand {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+
+      h2 {
+        width: 100%;
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 3.5rem;
+      }
+
+      p {
+        padding: 0px 10%;
+        text-transform: uppercase;
+        font-size: 1rem;
+      }
+    }
+
+    .form-login {
+      input {
+        width: 100%;
+        height: 36px;
+        padding: 0px 15px;
+        background: #fff;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+        margin: 5px 0px;
+        font-weight: 500;
+      }
+
+      button {
+        background: #e91e3c;
+        text-transform: uppercase;
+        color: #fff;
+        margin: 10px auto !important;
+
+        &.activated {
+          color: #212739;
+        }
+      }
+    }
+
+    .more-login {
+      margin-top: 25px;
+    }
+
+    .more-opt {
+      margin-top: 30px;
+      margin-bottom: -50px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      color: #fff;
+
+      button {
+        font-family: roboto;
+        font-size: 1.2rem !important;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: #fff;
+        text-transform: lowercase;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .profile {
+    background: #fafafa;
+
+    .info {
+      text-align: center;
+      margin-bottom: 0px;
+
+      .top-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 170px;
+        overflow: hidden;
+
+        img {
+          z-index: 0;
+          width: calc(100% + 50px);
+          filter: blur(7px);
+        }
+      }
+
+      .main-info {
+        z-index: 1;
+        margin-top: -70px;
+        text-align: center;
+        width: 100%;
+
+        img {
+          border: 4px solid #ddd;
+          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+          margin: 0px auto;
+        }
+
+        h2 {
+          display: block;
+          width: 100%;
+          margin-bottom: 0 !important;
+          margin-top: 15px !important;
+          font-size: 3.5rem;
+          font-family: cookie;
+          color: #e91e3c;
+        }
+
+        p {
+          display: block;
+          width: 100%;
+          margin-top: 0 !important;
+          font-size: 1.4rem;
+          color: #7e7e7e;
+        }
+      }
+    }
+
+    input, textarea {
+      background: #fff;
+      border-radius: 18px;
+      border: none;
+      padding: 15px;
+      box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+      margin-top: 5px;
+      width: 100%;
+      font-weight: 500;
+    }
+
+    input {
+      height: 36px;
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      // font-weight: bold;
+      color: #7e7e7e;
+      margin-top: 15px;
+    }
+
+    h3 {
+      display: block;
+      /*margin-top: 50px !important;*/
+      margin-bottom: 20px;
+      font-size: 3rem;
+      font-family: cookie;
+      color: #fff;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #e91e3c;
+      color: #fff;
+    }
+
+    .change-pass {
+      margin-bottom: 50px;
+    }
+  }
+}

@@ -1,0 +1,237 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// src: url("../assets/Cookie-Regular.ttf") format("truetype");
+@font-face {
+  font-family: "cookie";
+  font-style: normal;
+  font-weight: normal;
+
+  src: url("../assets/fonts/FuturaStd-Medium.ttf") format("truetype");
+}
+
+.alertCustomCss {
+  color: white;
+
+  .alert-wrapper {
+    background-color: #272727;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  }
+
+  .alert-message {
+    overflow: hidden;
+  }
+
+  .alert-radio-label {
+    color: white;
+  }
+
+  .alert-radio-group {
+    overflow: hidden;
+  }
+
+  .alert-button {
+    color: white;
+  }
+
+  button {
+    color: white;
+  }
+}
+
+.user-i {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  > img {
+    width: calc(100% + 10px);
+    max-width: initial;
+    min-height: calc(100% + 10px);
+    filter: blur(5px);
+  }
+
+  .main-user-i {
+    position: absolute;
+    left: 0;
+    color: #fff;
+
+    img {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      margin-right: 15px;
+      float: left;
+      border: 2px solid #fff;
+    }
+
+    h2 {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+      font-family: cookie;
+      font-size: 2.2rem;
+      margin-bottom: 0;
+      margin-top: 6px;
+    }
+
+    p {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+  }
+}
+
+
+
+
+.lst_menu {
+  margin-top: 20px !important;
+}
+
+
+.button-default-ios {
+  height: 3.6rem;
+}
+
+.toolbar-content-ios {
+  display: initial !important;
+}
+
+.toolbar-content {
+  display: flex;
+}
+
+.toolbar-background {
+  // 	background: #e91e3c;
+  background: rgba(23,23,23,0.95);
+}
+
+.toolbar-title {
+  text-align: left;
+  color: #f1f1f1;
+}
+
+.menu-inner, .menu-inner .content {
+  /*background: rgba(33, 33, 3, 0.95) !important;*/
+  /*background: #292929 !important;*/
+  /*background: #000 !important;*/
+
+  .item {
+    background: transparent !important;
+    text-transform: uppercase;
+    color: #fff;
+    color: #e3e6ec;
+    border: none !important;
+
+    ion-icon {
+      font-size: 2.6rem;
+      color: #e3e6ec;
+    }
+
+    .item-inner {
+      border: none;
+      font-family: roboto;
+      font-size: 1.45rem;
+      color: #e3e6ec;
+    }
+  }
+}
+
+  .menu-inner .toolbar-ios ion-title {
+    padding-left: 15px;
+  }
+
+.bar-button {
+  color: #f1f1f1;
+  // color: #e91e3c;
+}
+
+.group-btn-nav {
+  float: right;
+
+  button {
+    color: #f1f1f1;
+    font-weight: 500;
+    float: right;
+
+    ion-icon {
+      font-size: 1.8rem;
+      margin-right: 5px;
+    }
+
+    &.cart-nav ~ .search-nav {
+      padding-left: 5px;
+      padding-right: 0;
+    }
+  }
+}
+
+.content {
+  button {
+    font-family: cookie;
+    text-transform: none !important;
+    font-size: 1.5rem !important;
+
+    &.button-small {
+      font-size: 1.5rem !important;
+
+      ion-icon {
+        font-size: 2rem !important;
+      }
+    }
+  }
+}
+
+button {
+  &.active {
+    color: #e91e3c !important;
+
+    ion-icon {
+      color: #e91e3c !important;
+    }
+  }
+}
+
+.card-background-page {
+  background-color: #171717;
+}
+hr.style-eight {
+  overflow: visible;
+  padding: 0;
+  border: none;
+  border-top: medium double #fff;
+  color: #fff;
+  text-align: center;
+}
+  hr.style-eight:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1em;
+    padding: 0 0.25em;
+    background: #292929;
+  }

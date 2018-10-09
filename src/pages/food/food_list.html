@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-navbar>
+    <!-- Menu food list -->
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+    <div class="group-btn-nav">
+      <button clear small color="light" ion-button class="cart-nav" (click)="openCartPage()">
+        <ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+      </button>
+      <button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content style="background-image:url('assets/img/back.jpg')">
+  <!--<img src="{{base_url+img}}" />-->
+  <div style="background-size: auto 100%;background-attachment: fixed;">
+
+    <ion-card *ngFor="let item of list, let i = index" style=" background:rgba(255, 255, 255, 0.141);     box-shadow: 1px 5px 9px rgba(0, 0, 0, 0.3);   ">
+      <!--<img (click)="openPage(item.id)" src="{{item.image}}" />-->
+      <!--<div class="sale_off" *ngIf="item.discount_percent != null">-->
+        <!--<img class="badge" src="assets/img/badge.png" alt="">-->
+        <!--<p><b>Sale</b><br>-{{('0' + item.discount_percent).slice(-2)}}<small> %</small></p>
+      </div>-->
+      <ion-card-content>
+        <ion-card-title>
+          {{item.name}}
+          <div style="float: right;">
+            <p class="price" *ngIf="item.discount_percent == null || item.discount_percent == 0" style="    font-size: 2.2rem;">
+              <span *ngIf="settings.position == 0">
+                {{settings.currency_symbol}}
+              </span>
+              {{item.price}}
+              <span *ngIf="settings.position == 1">
+                {{settings.currency_symbol}}
+              </span>
+            </p>
+          </div>
+        </ion-card-title>
+        <p class="price_sale_off" *ngIf="item.discount_percent != null && item.discount_percent != 0">
+          <span class="price old-price">
+            &nbsp;
+            <span *ngIf="settings.position == 0">
+              {{settings.currency_symbol}}
+            </span>
+            {{item.price}},00$
+            <span *ngIf="settings.position == 1">
+              {{settings.currency_symbol}}
+            </span>
+            &nbsp;
+          </span>
+          <span class="price">
+            <span *ngIf="settings.position == 0">
+              {{settings.currency_symbol}}
+            </span>
+            {{rounder(item.price - item.price*item.discount_percent/100)}}
+            <span *ngIf="settings.position == 1">
+              {{settings.currency_symbol}}
+            </span>
+          </span>
+        </p>
+        <p>{{item.description.substr(0, 300)+''}}</p>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col col-4>
+          <button clear icon-left ion-button small (click)="modalAddCart(item)">
+            <ion-icon name="cart"></ion-icon>{{'add_cart' | translate}}
+          </button>
+        </ion-col>
+        <ion-col col-4 text-center>
+          <button clear icon-left ion-button small [ngClass]="item.favoriest ? 'active':''" (click)="addFavoriest(item)">
+            <ion-icon name="heart"></ion-icon>{{'favoriest' | translate}}
+          </button>
+        </ion-col>
+        <ion-col col-4 text-right>
+          <button clear icon-left ion-button small (click)="share(item)">
+            <ion-icon name="share-alt"></ion-icon>{{'share' | translate}}
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <ion-fab bottom right>
+    <button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

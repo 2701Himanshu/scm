@@ -1,0 +1,95 @@
+page-transactions {
+	.content{
+		background: #fafafa;
+	}
+	.no-item{
+		margin-top: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		b{
+			text-align: center;
+			width: 100%;
+			display: block;
+			font-size: 4rem;
+			font-family: cookie;
+			color: #e91e3c;
+		}
+		h4{
+			text-align: center;
+			font-size: 2rem;
+		}
+		p{
+			padding: 0px 40px;
+			font-size: 1.3rem;
+			text-align: center;
+			color: #7e7e7e;
+		}
+	}
+	ion-list{
+		padding-top: 62px;
+		ion-label{
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		.name{
+			color: #212121;
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin-bottom: 7px;
+		}
+		.phone{
+			color: #212121;
+			font-size: 1.3rem;
+		}
+		.address{
+			color: #212121;
+			font-size: 1.3rem;
+		}
+		ion-row{
+			text-align: center;
+			display: flex;
+			justify-content: center;
+		}
+		.status{
+			&-received{
+				text-align: center;
+				border-radius: 15px;
+				margin-top: 30px;
+				font-weight: bold;
+				color: #fff;
+				background: #e91e3c;
+				padding: 5px 15px;
+				display: inline-block;
+			}
+			&-success{
+				text-align: center;
+				border-radius: 15px;
+				margin-top: 30px;
+				font-weight: bold;
+				color: #fff;
+				background: #5dc13d;
+				padding: 5px 15px;
+				display: inline-block;
+			}
+		}
+		.section-name{
+			font-weight: bold;
+			text-transform: uppercase;
+			margin-top: 20px;
+			font-size: 12px;
+			margin-bottom: 5px;
+			padding-left: 10px;
+		}
+		.item-food{
+			font-size: 1.2rem;
+			padding-left: 10px;
+
+		}
+
+	}
+	.table-transactions{
+		
+	}
+}

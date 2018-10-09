@@ -1,0 +1,132 @@
+page-favorites {
+  .content {
+    /*background: rgba(23,23,23,0.95) !important;*/
+  }
+
+  .name-st {
+    margin-top: 35px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+
+    b {
+      width: 100%;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      color: #cbccd0;
+    }
+
+    h4 {
+      font-family: cookie;
+      font-size: 4rem;
+      width: 100%;
+      text-align: center;
+      color: #e91e3c;
+    }
+
+    p {
+      color: #7e7e7e;
+      font-size: 1.2rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .card {
+    position: relative;
+    margin-bottom: 15px;
+
+    .sale_off {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .badge {
+        width: 50px;
+        height: 50px;
+      }
+
+      p {
+        margin-top: -2px;
+        padding-right: 7px;
+        text-align: right;
+        width: 100%;
+        line-height: 1.3rem;
+        font-size: 1.6rem !important;
+        letter-spacing: -1px;
+        display: block;
+        position: absolute;
+        color: #e91e3c !important;
+        font-weight: bold;
+
+        b {
+          letter-spacing: 0.5px;
+          font-family: cookie;
+          padding-right: 3px;
+          color: #212739;
+          font-size: 1.3rem;
+        }
+
+        small {
+          font-weight: 900;
+          font-size: 1.2rem;
+          letter-spacing: -2px;
+        }
+      }
+    }
+
+    .card-title {
+      font-size: 2.6rem;
+      margin-top: 0;
+      padding-top: 0;
+      padding-bottom: 5px;
+      font-family: cookie;
+      font-weight: 500;
+      color: #e5e8ef !important;
+    }
+
+    p {
+      color: #e6e4e4;
+      font-size: 1.3rem;
+    }
+
+    .price {
+      display: inline-block;
+      color: #e91e3c;
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-right: 10px;
+
+      &.old-price {
+        font-style: italic;
+        text-decoration: line-through;
+        color: #7e7e7e;
+      }
+    }
+
+    button {
+      text-transform: lowercase;
+      color: #fefeff;
+      font-weight: normal;
+
+      ion-icon {
+        color: #eeeff3;
+      }
+
+      &.active {
+        color: #e91e3c;
+
+        ion-icon {
+          color: #e91e3c;
+        }
+      }
+    }
+  }
+}

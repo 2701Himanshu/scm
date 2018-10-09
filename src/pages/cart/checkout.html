@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <!--<div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>-->
+    <ion-title>Checkout</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="checkout" style="background-image:url('assets/img/back.jpg')">
+<ion-row padding>
+<h4>Complete the order</h4>
+<p>You need to fill in and complete the<br>information below</p>
+</ion-row>
+
+<ion-list radio-group [(ngModel)]="pay_method">
+
+<!--<ion-item>
+<ion-label>Payment on delivery</ion-label>
+<ion-radio value="0"></ion-radio>
+</ion-item>-->
+
+<ion-item>
+<ion-label>Payment by credit card</ion-label>
+<ion-radio value="1"></ion-radio>
+</ion-item>
+
+<!-- <ion-item>
+<ion-label>Pay use Paypal</ion-label>
+<ion-radio value="2"></ion-radio>
+</ion-item> -->
+</ion-list>
+
+<ion-list>
+
+<div *ngIf="pay_method==1">
+ <ion-item>
+ <ion-label stacked>Card Number</ion-label>
+ <ion-input [(ngModel)]="card_info.number" type="number"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label stacked>Exp Month</ion-label>
+<ion-input [(ngModel)]="card_info.expMonth" type="number"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label stacked>Exp Year</ion-label>
+<ion-input [(ngModel)]="card_info.expYear" type="number"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label stacked>CVC</ion-label>
+<ion-input [(ngModel)]="card_info.cvc" type="number"></ion-input>
+</ion-item>
+</div>
+
+
+<div *ngIf="user_id == null">
+<ion-item>
+  <ion-label stacked>Full name</ion-label>
+  <ion-input [(ngModel)]="full_name" type="text"></ion-input>
+  <p padding class="err" *ngIf="full_name.length < 5 || full_name.length > 50">* More than 5 and less than 50 characters, do not contain special characters.</p>
+</ion-item>
+
+<ion-item>
+  <ion-label stacked>Phone</ion-label>
+  <ion-input type="number" [(ngModel)]="phone" type="text"></ion-input>
+  <p padding class="err" *ngIf="phone.length < 10 || phone.length > 50">* More than 10 and less than 50 digits.</p>
+</ion-item>
+
+<ion-item>
+  <ion-label stacked>Email</ion-label>
+  <ion-input type="text" [(ngModel)]="email" type="text"></ion-input>
+  <p padding class="err" *ngIf="email.length < 10 || email.length > 50">* More than 10 and less than 50 digits.</p>
+</ion-item>
+</div>
+
+<div *ngIf="delivery == '1'">
+  <ion-item>
+    <ion-label stacked>Receiving address</ion-label>
+    <ion-input [(ngModel)]="address" type="text"></ion-input>
+  </ion-item>
+  <!-- <p padding class="err" *ngIf="address.length < 5 || address.length > 250">* More than 5 and less than 250 characters.</p> -->
+</div>
+
+<div *ngIf="delivery == '0'">
+  <!--<ion-item>
+    <ion-label stacked>Receiving address</ion-label>
+    <ion-input [(ngModel)]="address" type="text"></ion-input>
+  </ion-item>-->
+  <p padding>
+    Please Pick up the Oder From our Store:<br /><br />
+    <b>{{store.name}}</b><br />
+    {{store.address}}
+  </p>
+</div>
+
+<ion-item>
+<ion-label stacked>Message</ion-label>
+<ion-textarea [(ngModel)]="message"></ion-textarea>
+</ion-item>
+<p padding class="err" *ngIf="message.length > 500">* Less than 500 characters</p>
+</ion-list>
+
+<ion-row class="payment" padding>
+<p class='fee total-pay'><span>Total:</span><span>
+  <i *ngIf="settings.position == 0">
+    {{settings.currency_symbol}}
+  </i>
+  {{total}}
+  <i *ngIf="settings.position == 1">
+    {{settings.currency_symbol}}
+  </i>
+</span></p>
+<ion-row class="err_show" *ngIf="msg_err != 0">
+<p class="err" *ngIf="!validate">Error! You must fill in the information again.</p>
+</ion-row>
+
+<button icon-left ion-button round block (click)="order()">
+  <ion-icon name="card"></ion-icon>Complete the order
+</button>
+
+<button icon-left ion-button round block (click)="cancel()" style="color: #e91e3c;">
+  <ion-icon name="close"></ion-icon>Cancel
+</button>
+</ion-row>
+<!-- 
+<button (click)="order_on_paypal()">Order Paypal</button> -->
+
+<ion-fab bottom right>
+  <button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+  <ion-fab-list side="left">
+    <button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+    <button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+    <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>
+</ion-content>

@@ -1,0 +1,208 @@
+page-food {
+  .content {
+    background: #171717;
+  }
+
+  .card {
+    position: relative;
+    margin-bottom: 15px;
+
+    .sale_off {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .badge {
+        width: 50px;
+        height: 50px;
+      }
+
+      p {
+        margin-top: -2px;
+        padding-right: 7px;
+        text-align: right;
+        width: 100%;
+        line-height: 1.3rem;
+        font-size: 1.6rem !important;
+        letter-spacing: -1px;
+        display: block;
+        position: absolute;
+        color: #e91e3c !important;
+        font-weight: bold;
+
+        b {
+          letter-spacing: 0.5px;
+          font-family: cookie;
+          padding-right: 3px;
+          color: #212739;
+          font-size: 1.3rem;
+        }
+
+        small {
+          font-weight: 900;
+          font-size: 1.2rem;
+          letter-spacing: -2px;
+        }
+      }
+    }
+
+    .card-title {
+      font-size: 2.6rem;
+      margin-top: 0;
+      padding-top: 0;
+      padding-bottom: 5px;
+      font-family: cookie;
+      font-weight: 500;
+      color: #e5e8ef !important;
+    }
+
+    p {
+      color: #e6e4e4;
+      font-size: 1.3rem;
+    }
+
+    .price {
+      display: inline-block;
+      color: #e91e3c;
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-right: 10px;
+
+      &.old-price {
+        font-style: italic;
+        text-decoration: line-through;
+        color: #7e7e7e;
+      }
+    }
+
+    button {
+      text-transform: lowercase;
+      color: #fefeff;
+      font-weight: normal;
+
+      ion-icon {
+        color: #eeeff3;
+      }
+    }
+  }
+
+  .food-detail {
+    .wrapper_pst {
+      position: relative;
+    }
+
+    .sale_off {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .badge {
+        width: 50px;
+        height: 50px;
+      }
+
+      p {
+        margin-top: -2px;
+        padding-right: 7px;
+        text-align: right;
+        width: 100%;
+        line-height: 1.3rem;
+        font-size: 1.6rem !important;
+        letter-spacing: -1px;
+        display: block;
+        position: absolute;
+        color: #e91e3c !important;
+        font-weight: bold;
+
+        b {
+          letter-spacing: 0.5px;
+          font-family: cookie;
+          padding-right: 3px;
+          color: #212739;
+          font-size: 1.3rem;
+        }
+
+        small {
+          font-weight: 900;
+          font-size: 1.2rem;
+          letter-spacing: -2px;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      margin-bottom: 5px;
+      font-family: cookie;
+      color: #dcdcdc;
+    }
+
+    .date {
+      margin: 0px;
+      font-size: 1.2rem;
+      color: #bebebe;
+    }
+
+    .price {
+      // font-family: cookie;
+      color: #e91e3c;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 0;
+      margin-right: 15px;
+
+      &.old-price {
+        font-style: italic;
+        text-decoration: line-through;
+        color: #7e7e7e;
+      }
+    }
+
+    .offer_des {
+      color: #e91e3c;
+      font-style: italic;
+
+      ion-icon {
+        font-size: 1.3rem;
+      }
+    }
+
+    .description {
+      color: #7e7e7e;
+      font-size: 1.3rem;
+      line-height: 2.2rem;
+    }
+
+    .gr-btn {
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      ion-icon {
+        font-size: 2.3rem;
+      }
+
+      button:first-child {
+        background: #e91e3c;
+      }
+
+      button:nth-child(2) {
+        background: #212739;
+
+        &.active {
+          border: 2px solid #e91e3c;
+          background: transparent;
+          color: #e91e3c;
+        }
+      }
+    }
+  }
+}

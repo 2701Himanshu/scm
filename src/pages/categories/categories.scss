@@ -1,0 +1,43 @@
+page-categories {
+	.card-background-page {
+		ion-card {
+			position: relative;
+			color: #fff;
+			max-height: 170px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		// img{
+		// 	filter: blur(1.5px);
+		// }
+		.wrapper-bg{
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			background: rgba(0,0,0,0.7);
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+		.card-title {
+			font-family: cookie;
+			font-size: 4rem;
+		}
+		.card-subtitle {
+			font-size: 1.3rem;
+			// color: #e91e3c;
+			// font-weight: 500;
+			p{
+				color: #e91e3c;
+				font-size: 1.3rem;
+				display: inline-block;
+				font-weight: 500;
+				margin-left: 5px;
+			}
+		}
+	}
+}

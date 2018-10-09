@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <!--<button ion-button menuToggle>
+    <ion-icon name="ios-contact-outline"></ion-icon>
+  </button>-->
+    <div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ion-title>{{'about' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="map">
+    <iframe src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Salt%20Meats%20Cheese%20Broadway%2C%2068%20Bay%20St%2C%20Ultimo%20NSW%202007%2C%20Australia+(Salt%20Meats%20Cheese%20Broadway)&ie=UTF8&t=&z=19&iwloc=B&output=embed" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <!--<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d27583.016935900032!2d105.83403782350675!3d21.036132526875356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x0%3A0x85839944f456f253!2zUXXhuqNuZyB0csaw4budbmcgQmEgxJDDrG5o!3m2!1d21.037447999999998!2d105.8360008!5e0!3m2!1svi!2s!4v1496303332325" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>-->
+  </ion-row>
+
+	<div padding class="address">
+		<h4>{{'find_us' | translate}} <br>{{'contact_us' | translate}}</h4>
+		<ion-row>
+			<ion-icon col-2 name="ios-pin-outline"></ion-icon>
+			<span col-9>
+				<p>{{obj.address}}</p>
+        <p ng-if="obj.sub_address != null">{{obj.sub_address}}</p>
+			</span>
+		</ion-row>
+		<ion-row>
+			<ion-icon col-2 name="ios-mail-outline"></ion-icon>
+			<span col-9>
+  			<p>{{obj.mail}}</p>
+  			<p ng-if="obj.sub_mail != null">{{obj.sub_mail}}</p>
+  		</span>
+		</ion-row>
+		<ion-row>
+			<ion-icon col-2 name="ios-call-outline"></ion-icon>
+			<span col-9>
+				<p>{{obj.phone}}</p>
+				<p ng-if="obj.sub_phone != null">{{obj.sub_phone}}</p>
+			</span>
+		</ion-row>
+    <ion-row ng-if="obj.website != null">
+      <ion-icon col-2 name="md-globe"></ion-icon>
+      <span col-9>
+        <p>{{obj.website}}</p>
+      </span>
+    </ion-row>
+    <ion-row class="social">
+      <h5>{{'social' | translate}}</h5>
+      <button ion-button small clear icon-only *ngIf="obj.facebook != null" (click)="nav_more(obj.facebook)">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-button small clear icon-only *ngIf="obj.instagram != null" (click)="nav_more(obj.instagram)">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </button>
+      <button ion-button small clear icon-only *ngIf="obj.twitter != null" (click)="nav_more(obj.twitter)">
+        <ion-icon name="logo-twitter" ></ion-icon>
+      </button>
+      <button ion-button small clear icon-only *ngIf="obj.pinterest != null" (click)="nav_more(obj.pinterest)">
+        <ion-icon name="logo-pinterest" ></ion-icon>
+      </button>
+      <button ion-button small clear icon-only *ngIf="obj.google_plus != null" (click)="nav_more(obj.google_plus)">
+        <ion-icon name="logo-google" ></ion-icon>
+      </button>
+      <button ion-button small clear icon-only *ngIf="obj.youtube != null" (click)="nav_more(obj.youtube)">
+        <ion-icon name="logo-youtube" ></ion-icon>
+      </button>
+    </ion-row>
+  </div>
+
+  <div padding class="ter_cond" ng-if="obj.terms_and_conditions != null">
+    <ion-row>
+      <h5>{{'termcond' | translate}}</h5>
+      <p>{{obj.terms_and_conditions}}</p>
+    </ion-row>
+	</div>
+
+  <ion-row padding class="form-contact">
+		<h4>{{'send_messages' | translate}}</h4>
+    <form [formGroup]="form_contact" (ngSubmit)="send_message()">
+      <ion-item>
+        <input type="text" formControlName="full_name" placeholder="{{'full_name' | translate}}"/>
+      </ion-item>
+
+      <ion-item>
+        <input type="email" formControlName="email" placeholder="{{'email' | translate}}"/>
+      </ion-item>
+      <ion-item>
+        <textarea formControlName="message" placeholder="{{'messages' | translate}}"></textarea>
+      </ion-item>
+      <button ion-button type="submit" round>{{'submit' | translate}}</button>
+    </form>
+  </ion-row>
+
+  <ion-fab bottom right>
+  <button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+  <ion-fab-list side="left">
+    <button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+    <button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+    <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>
+</ion-content>

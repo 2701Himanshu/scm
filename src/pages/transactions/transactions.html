@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar>
+    <!--<button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+    <div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ion-title>{{'transactions' | translate}}</ion-title>
+    <div class="group-btn-nav">
+      <button clear small color="light" ion-button class="cart-nav" (click)="openCartPage()">
+        <ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+      </button>
+      <button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="list == 0" padding style="background-image:url('assets/img/back.jpg')">
+<div class="no-item">
+	<span>
+		<b>{{'oops' | translate}}</b>
+		<h4 style="color:#fff">You do not have any transactions</h4>
+		<p>{{'come_to_store' | translate}}</p>
+	</span>
+</div>
+
+<ion-fab bottom right>
+<button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+<ion-fab-list side="left">
+<button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+<button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+<button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+</ion-fab-list>
+</ion-fab>
+</ion-content>
+
+
+<ion-content *ngIf="list != 0" style="background-image:url('assets/img/back.jpg')">
+
+<ion-list>
+<ion-item *ngFor="let item of list" style=" background:rgba(255, 255, 255, 0.141);     box-shadow: 1px 5px 9px rgba(0, 0, 0, 0.3); color:#fff;  ">
+<p class="name" style="color:#fff;">{{'order_no' | translate}}: #{{item.id}}</p>
+<p class="phone" style="color:#fff;">{{'phone' | translate}}: {{item.phone}}</p>
+<p class="address" style="color:#fff;">{{'address' | translate}}: {{item.address}}</p>
+
+<h3 class="section-name">{{'items' | translate}}</h3>
+
+<div class="item-food" *ngFor="let lst_food of item.lst_food_order">
+	<ion-icon name=""></ion-icon>
+	{{lst_food.name}}(
+	<span *ngIf="settings.position == 0">
+		{{settings.currency_symbol}}
+	</span>
+	{{lst_food.price}}
+	<span *ngIf="settings.position == 1">
+		{{settings.currency_symbol}}
+	</span>
+	) x {{lst_food.quantity}}
+	<div *ngIf="lst_food.extras_name">&nbsp;Extras: {{lst_food.extras_name}}</div>
+</div>
+
+<h3 class="section-name">{{'total_include_tax' | translate}}:&nbsp;
+<span *ngIf="settings.position == 0">
+		{{settings.currency_symbol}}
+	</span>
+{{item.total}}
+	<span *ngIf="settings.position == 1">
+		{{settings.currency_symbol}}
+	</span>
+</h3>
+
+
+<ion-row>
+<p class="status-success" style="color: " *ngIf="item.received == 1"> {{'delivered' | translate}}</p>
+<p class="status-received" *ngIf="item.received == 0">{{'pending' | translate}}</p>
+</ion-row>
+</ion-item>
+</ion-list>
+
+
+
+<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+<ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+
+
+<ion-fab bottom right>
+<button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+<ion-fab-list side="left">
+<button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+<button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+<button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+</ion-fab-list>
+</ion-fab>
+</ion-content>

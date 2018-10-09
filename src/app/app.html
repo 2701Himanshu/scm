@@ -1,0 +1,70 @@
+<ion-menu type="reveal" [content]="content" (ionOpen)="menuOpened()" (ionClose)="menuClosed()">
+  <ion-header>
+    <ion-toolbar>
+      <!--<button ion-button menuToggle>Toggle Menu</button>-->
+      <!--<button ion-button menuToggle>
+        <ion-icon name="close"></ion-icon>
+      </button>-->
+
+      <ion-title>{{'app_name' | translate}}</ion-title>
+
+    </ion-toolbar>
+
+
+
+  </ion-header>
+
+  <ion-content style="background-image:url('assets/img/back.jpg'); height:100%;overflow:hidden">
+    <!--<div style="width: 50%;float: right;">
+    <img src="assets/img/mb.jpg" />
+  </div>-->
+    <!-- background-color: #313131d1;
+    style="background-image:url(assets/img/mb.jpg) !important;"
+    -->
+    <ion-list class="lst_menu" style="height:100%;font-family:cookie;    ">
+      <button menuClose ion-item icon-left *ngFor="let p of pages" (click)="openPage(p)" >
+        <ion-icon name="{{p.icon}}" item-left></ion-icon>
+        <span style="font-family:cookie;">{{p.title | translate}}</span>
+      </button>
+      <!--<hr class="style-eight" />-->
+      <button menuClose ion-item icon-left *ngIf="user == null" (click)="presentLocationAlert()">
+        <ion-icon name="ios-compass-outline" item-left></ion-icon>
+        <span style="font-family:cookie;">Select Store Location</span>
+          <span *ngIf="location" style="font-family:cookie;">
+            <br />{{location}}
+          </span>
+</button>
+
+      <!--<button menuClose ion-item icon-left *ngIf="location">
+    <ion-icon name="ios-compass-outline" item-left></ion-icon>
+
+  </button>-->
+
+      <button menuClose ion-item icon-left *ngIf="user != null" (click)="openTransactions()">
+        <ion-icon name="ios-swap-outline" item-left></ion-icon>
+        <span style="font-family:cookie;">{{'transactions' | translate}}</span>
+</button>
+      <button menuClose ion-item icon-left *ngIf="user != null" (click)="openProfile()">
+        <ion-icon name="ios-contact-outline" item-left></ion-icon>
+        <span style="font-family:cookie;">{{'profile' | translate}}</span>
+</button>
+      <button menuClose ion-item icon-left *ngIf="user == null" (click)="openLogin()">
+        <ion-icon name="ios-log-in" item-left></ion-icon>
+        <span style="font-family:cookie;">{{'login' | translate}}</span>
+</button>
+      <button menuClose ion-item icon-left *ngIf="user != null" (click)="logout()">
+        <ion-icon name="ios-log-out" item-left></ion-icon>
+        <span style="font-family:cookie;">{{'logout' | translate}}</span>
+</button>
+      <!--<div style="width: 100%;    background-color: #000;position: absolute;        bottom: 0px;">
+        <img src="assets/img/splash.png" (click)="presentPrompt()" />
+      </div>-->
+    </ion-list>
+    
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+
+</ion-nav>

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <!--<button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>-->
+    <div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ion-title>{{'profile' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="profile" style="background-image:url('assets/img/back.jpg')">
+	<ion-row class="info">
+<!-- 		<div class="top-bg">
+			<img *ngIf="user.avt != '' || user.avt != null" src="{{base_url + user.avt}}" alt="">
+			<img *ngIf="user.avt == '' || user.avt == null" src="../../assets/img/home-banner.jpg" alt="">
+		</div> -->
+		<div padding class="main-info">
+<!-- 			<div *ngIf="user.avt != '' || user.avt != null">
+	  			<img src="{{base_url + user.avt}}" alt="">
+	  		</div>
+	  		<div *ngIf="user.avt == '' || user.avt == null">
+	  			<img src="../../assets/img/home-banner.jpg" alt="">
+			</div> -->
+      <br /><br /><br /><br />
+      <h2>{{user.full_name}}</h2>
+			<p>{{user.email}}</p>
+		</div>
+  	</ion-row>
+  	<ion-row padding class="main-profile">
+	  	<label for="">{{'full_name' | translate}}</label>
+	  	<input [(ngModel)]="full_name" type="text">
+	  	<label for="">{{'phone' | translate}}</label>
+	  	<input [(ngModel)]="phone" type="number">
+	  	<label for="">{{'address' | translate}}</label>
+	  	<input [(ngModel)]="address" type="text">
+	  	<p style="width: 100%; display: block;" *ngIf="msg_err_edit != '' || msg_err_edit != null">{{this.msg_err_edit}}</p>
+	  	<button ion-button round color="light" (click)="update_profile()">{{'update' | translate}}</button>
+	</ion-row>
+	<ion-row padding class="change-pass">
+	  	<h3>{{'change_password' | translate}}</h3>
+	  	<label for="">{{'old_password' | translate}}</label>
+	  	<input [(ngModel)]="old_pwd" type="Password">
+	  	<label for="">{{'new_password' | translate}}</label>
+	  	<input [(ngModel)]="new_pwd" type="Password">
+	  	<label for="">{{'confirm_password' | translate}}</label>
+	  	<input [(ngModel)]="confirm_pwd" type="Password">
+	  	<p style="width: 100%; display: block;" *ngIf="msg_err_pwd != '' || msg_err_pwd != null">{{this.msg_err_pwd}}</p>
+	  	<button ion-button round color="light" (click)="change_pwd()">{{'change' | translate}}</button>
+	</ion-row>
+</ion-content>

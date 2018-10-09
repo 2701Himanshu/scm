@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!--<div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>-->
+    <ion-title>{{'cart' | translate}}</ion-title>
+    <div class="group-btn-nav">
+      <button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content *ngIf="list == 0" style="background-image:url('assets/img/back.jpg')">
+  <div class="no-item">
+    <span>
+      <b>{{'oops' | translate}}</b>
+      <h4 style="color:#fff">{{'empty_cart' | translate}}</h4>
+      <p>{{'come_to_store' | translate}}</p>
+    </span>
+  </div>
+  <ion-fab bottom right>
+    <button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+<ion-content *ngIf="list != 0" style="background-image:url('assets/img/back.jpg')">
+  <ion-list>
+    <ion-item-sliding *ngFor="let lst of list, let i = index" style=" background:rgba(255, 255, 255, 0.141);     box-shadow: 1px 5px 9px rgba(0, 0, 0, 0.3);   ">
+      <ion-item style="background:rgba(255, 255, 255, 0.141);">
+        <!--<ion-thumbnail item-left>
+  <img src="{{lst.image}}">
+  </ion-thumbnail>-->
+
+        <div>
+          <button clear small ion-button (click)="remove(i)" style="color: #fff;float:right">  <ion-icon name="trash"></ion-icon></button>
+          <h2>{{lst.name}}</h2>
+        </div>
+        <p style="color: #fff;">
+          {{'quantity' | translate}}:
+          <button clear small ion-button (click)="minus(lst.quantity, i)"><ion-icon name="remove"></ion-icon></button>
+          <input type="number" [(ngModel)]="lst.quantity" (blur)="enter_quantity(lst)" style="color:#000;">
+          <button clear small ion-button (click)="plus(lst.quantity, i)"><ion-icon name="add"></ion-icon></button>
+        </p>
+        <p style="color: #fff;">
+          {{'price' | translate}} :
+          <span *ngIf="settings.position == 0">
+            {{ settings.currency_symbol}}
+          </span>
+          {{rounder(lst.size_price)}}
+          <span *ngIf="settings.position == 1">
+            {{settings.currency_symbol}}
+          </span>
+        </p>
+        <!-- <p>{{'extras' | translate}}: {{lst.lst_extras_name}}</p> -->
+
+        <!--<p>
+
+          {{'total_price' | translate}}:
+          <span *ngIf="settings.position == 0">
+            {{settings.currency_symbol}}
+          </span>
+          {{lst.total_price}}
+          <span *ngIf="settings.position == 1">
+            {{settings.currency_symbol}}
+          </span>
+          x {{lst.quantity}} {{'items' | translate}} is {{settings.currency_symbol}}{{lst.total}}
+        </p>-->
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="remove(i)">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-row class="payment" padding>
+    <p class='fee'>
+      <span>{{'sub_total' | translate}}:</span><span>
+        <i *ngIf="settings.position == 0">
+          {{settings.currency_symbol}}
+        </i>
+        {{pay.products}}
+        <i *ngIf="settings.position == 1">
+          {{settings.currency_symbol}}
+        </i>
+      </span>
+    </p>
+    <!--<p class='fee'><span>{{'tax' | translate}}:</span><span>{{pay.tax}}&nbsp;%</span></p>-->
+    <p class='fee'>
+      <span>Delivery:</span><span>
+        <i *ngIf="settings.position == 0">
+          {{settings.currency_symbol}}
+        </i>
+        {{pay.ship_fee}}
+        <i *ngIf="settings.position == 1">
+          {{settings.currency_symbol}}
+        </i>
+      </span>
+    </p>
+    <p class='fee total-pay'>
+      <span>{{'total' | translate}}:</span><span>
+        <i *ngIf="settings.position == 0">
+          {{settings.currency_symbol}}
+        </i>
+        {{pay.total}}
+        <i *ngIf="settings.position == 1">
+          {{settings.currency_symbol}}
+        </i>
+      </span>
+    </p>
+    <button icon-left ion-button round block (click)="checkout()">
+      <ion-icon name="card"></ion-icon>{{'order' | translate}}
+    </button>
+    <button icon-left ion-button round block (click)="removeAll()" style="color: #e91e3c;">
+      <ion-icon name="close"></ion-icon>{{'clear_all' | translate}}
+    </button>
+  </ion-row>
+  <ion-fab bottom right>
+    <button ion-fab style="    background-color: #2b2b2b;">{{'contact' | translate}}</button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

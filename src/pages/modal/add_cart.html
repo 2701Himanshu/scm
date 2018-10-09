@@ -1,0 +1,94 @@
+
+<ion-content padding class="food-detail alert-ios">
+<ion-row class="close-modal" (click)="dismiss()"></ion-row>
+<ion-row class="main-modal alert-wrapper">
+
+<ion-list *ngIf="list != null" radio-group [(ngModel)]="select_size">
+<ion-list-header style="color:#fff !important;">{{'select_size' | translate}}</ion-list-header>
+<ion-item *ngFor="let lst of list">
+<ion-label>{{lst.name}}</ion-label>
+<ion-label *ngIf="discount == 0 || discount == null">
+<span *ngIf="settings.position == 0">
+  {{settings.currency_symbol}}
+</span>
+
+{{lst.price}}
+<span *ngIf="settings.position == 1">
+  {{settings.currency_symbol}}
+</span>
+
+</ion-label>
+<ion-label *ngIf="discount != 0 && discount != null">
+<span *ngIf="settings.position == 0">
+  {{settings.currency_symbol}}
+</span>
+
+{{lst.price - lst.price*discount/100}}
+<span *ngIf="settings.position == 1">
+  {{settings.currency_symbol}}
+</span>
+
+</ion-label>
+<ion-radio  value="{{lst.name}}" (click)="selectSize(lst.name, lst.price)"></ion-radio>
+</ion-item>
+</ion-list>
+
+<ion-list *ngIf="list == null" radio-group [(ngModel)]="select_size">
+<ion-list-header style="color:#fff !important; background:#272727;">{{'select_size' | translate}}</ion-list-header>
+<ion-item>
+<ion-label>Price</ion-label>
+<ion-label>
+<span *ngIf="settings.position == 0">
+  {{settings.currency_symbol}}
+</span>
+
+{{price*1 - price*1*discount*1/100}}
+<span *ngIf="settings.position == 1">
+  {{settings.currency_symbol}}
+</span>
+
+</ion-label>
+<ion-radio checked value="" (click)="selectSize(lst.name, lst.price)"></ion-radio>
+</ion-item>
+</ion-list>
+
+<ion-list *ngIf="list_ext != null">
+<ion-list-header style="color:#fff !important; background:#272727;">{{'select_extras' | translate}}</ion-list-header>
+<ion-item *ngFor="let lst of list_ext, let i = index">
+<ion-label>{{lst.name}}</ion-label>
+<ion-label>
+<span *ngIf="settings.position == 0">
+  {{settings.currency_symbol}}
+</span>
+
+{{lst.price}}
+<span *ngIf="settings.position == 1">
+  {{settings.currency_symbol}}
+</span>
+
+</ion-label>
+<ion-checkbox (ionChange)="selectExt(lst.price, lst.id)"></ion-checkbox>
+</ion-item>
+</ion-list>
+
+<div class="add-button">
+  <div class="total-price" style="color:#fff !important; background:#272727;">
+    <p>
+
+      {{'total' | translate}}: 
+      <span *ngIf="settings.position == 0">
+        {{settings.currency_symbol}}
+      </span>
+
+      <b>{{total_price}}
+        <span *ngIf="settings.position == 1">
+          {{settings.currency_symbol}}
+        </span>
+
+      </b></p>
+    </div>
+    <button ion-button clear block round (click)="addToCart()">{{'ok' | translate}}</button>
+  </div>
+
+</ion-row>
+</ion-content>

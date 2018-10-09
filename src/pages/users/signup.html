@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+    <!--<div id="nav-icon1" (click)="menubtn()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>-->
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="form-signup">
+  <ion-list>
+    <form [formGroup]="form" (ngSubmit)="signup()">
+      <label for="">{{'username' | translate}}</label>
+      <ion-input formControlName="user_name" type="text"></ion-input>
+      <p class="err"  *ngIf="!form.controls.user_name.valid  && (form.controls.user_name.dirty || submitAttempt)">* More than 5 and less than 50 characters, No Space in username.</p>
+      
+      <label for="">{{'fullname' | translate}}</label>
+      <ion-input formControlName="full_name"  type="text"></ion-input>
+      <p class="err"  *ngIf="!form.controls.full_name.valid  && (form.controls.full_name.dirty || submitAttempt)">* More than 5 and less than 50 characters</p>
+      
+      <label for="">{{'email' | translate}}</label>
+      <ion-input formControlName="email"  type="text"></ion-input>
+      <p class="err"  *ngIf="!form.controls.email.valid  && (form.controls.email.dirty || submitAttempt)">* More than 5 and less than 50 characters</p>
+      
+      <label for="">{{'phone' | translate}}</label>
+      <ion-input formControlName="phone"  type="text"></ion-input>
+      <p class="err"  *ngIf="!form.controls.phone.valid  && (form.controls.phone.dirty || submitAttempt)">* More than 5 and less than 50 characters</p>
+      
+      <label for="">{{'address' | translate}}</label>
+      <ion-input formControlName="address" type="text"></ion-input>
+      <p class="err"  *ngIf="!form.controls.address.valid && (form.controls.address.dirty || submitAttempt)">* More than 5 and less than 50 characters</p>
+      
+      <label for="">{{'password' | translate}}</label>
+      <ion-input formControlName="pwd" type="password"></ion-input>
+      <p class="err"  *ngIf="!form.controls.pwd.valid && (form.controls.pwd.dirty || submitAttempt)">* More than 5 and less than 50 characters</p>
+      
+      <label for="">confirm password</label>
+      <ion-input formControlName="repwd"  type="password"></ion-input>
+      <p class="err"  *ngIf="!form.controls.repwd.valid  && (form.controls.repwd.dirty || submitAttempt)">* More than 5 and less than 50 characters</p>
+
+      <ion-list style="display: none;" radio-group formControlName="send_code_method">
+        <ion-list-header>
+          {{'get_verified_code_via' | translate }} (sms verfication is disable for demo)
+        </ion-list-header>
+        <!-- <ion-item>
+          <ion-label><span style="font-size: 12px">{{'sms' | translate}}</span></ion-label>
+          <ion-radio value="0"></ion-radio>
+        </ion-item> -->
+        <ion-item>
+          <ion-label><span style="font-size: 12px">{{'mail' | translate}}</span></ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <div class="" padding>
+        <button ion-button block round color="danger" [disabled]="!form.valid" type="submit" >{{'submit' | translate}}</button>
+      </div>
+    </form>
+
+  </ion-list>
+</ion-content>
